@@ -1,5 +1,10 @@
 ---
 title: "R Notebook"
+output: html_notebook
+---
+
+---
+title: "R Notebook"
 output:
   html_document:
     df_print: paged
@@ -73,5 +78,12 @@ echelon(A,b)
 
 ```{r}
 echelon(A, b, verbose=TRUE, fractions=TRUE)
+```
+
+```{r}
+echelon(A,b, verbose=TRUE)
+```
+```{r}
+echelon(A,b, verbose=TRUE, fractions=TRUE)
 ```
 
