@@ -1,0 +1,72 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+### The required package
+To perform linear equations in R, we need to install a package called **matlib**.
+To install the package, write the command below:
+
+```{r}
+#install.packages("matlib")
+```
+
+Load the package
+```{r}
+library(matlib)
+```
+
+
+### Equations in two unknowns
+Suppose we have a linear system,
+
+$$
+\begin{alignat*}{7}
+5x &&\; - \;&& 4y             &&\; = \;&& -10  \\
+-x &&\; - \;&& y             &&\; = \;&& 2 \\
+\end{alignat*}
+$$
+that can be represented in a matrix form 
+
+$$
+\begin{bmatrix}
+	5 & -4 \\
+  -1 & -1
+  \end{bmatrix}
+    \begin{bmatrix}
+	  x_{1} \\
+    x_{2}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+	-10 \\
+	2 
+	\end{bmatrix}
+$$
+that is, $$Ax=b$$, and we have $$ x = A^{-1}b$$
+
+#### Create and show the equation
+```{r}
+A <- matrix(c(5, -4, -1, 1), 2, 2, TRUE)
+b <- c(-10, 2)
+showEqn(A, b)
+```
+#### Find solution
+```{r}
+Solve(A,b)
+```                   
+
+
+#### Plot the equation
+Use plotEqn() for equations with two-variable equations and use plotEqn3d for three-variable equations.
+```{r}
+plotEqn(A,b)
+```   
+
+
+#### Reduced echelon form
+```{r}
+echelon(A,b)
+```
