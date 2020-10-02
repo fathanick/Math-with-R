@@ -70,3 +70,8 @@ plotEqn(A,b)
 ```{r}
 echelon(A,b)
 ```
+
+```{r}
+echelon(A, b, verbose=TRUE, fractions=TRUE)
+```
+

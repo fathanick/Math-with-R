@@ -1696,6 +1696,36 @@ showEqn(A, b)</code></pre>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    0   -2
 ## [2,]    0    1    0</code></pre>
+<pre class="r"><code>echelon(A, b, verbose=TRUE, fractions=TRUE)</code></pre>
+<pre><code>## 
+## Initial matrix:
+##      [,1] [,2] [,3]
+## [1,]   5   -4  -10 
+## [2,]  -1    1    2 
+## 
+## row: 1 
+## 
+##  multiply row 1 by 1/5 
+##      [,1] [,2] [,3]
+## [1,]    1 -4/5   -2
+## [2,]   -1    1    2
+## 
+##  multiply row 1 by 1 and add to row 2 
+##      [,1] [,2] [,3]
+## [1,]    1 -4/5   -2
+## [2,]    0  1/5    0
+## 
+## row: 2 
+## 
+##  multiply row 2 by 5 
+##      [,1] [,2] [,3]
+## [1,]    1 -4/5   -2
+## [2,]    0    1    0
+## 
+##  multiply row 2 by 4/5 and add to row 1 
+##      [,1] [,2] [,3]
+## [1,]  1    0   -2  
+## [2,]  0    1    0</code></pre>
 </div>
 </div>
 
