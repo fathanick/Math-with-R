@@ -1,0 +1,47 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+U <- c(1,2,3,4,5,6,7,8,9,10,11,12)
+A <- c(2,3,5,7,11)
+B <- c(2,4,6,8,10,12)
+C <- c(3,6,9,12)
+```
+
+$$A\cup B$$
+```{r}
+AUB <- union(A,B)
+```
+$$A\cap B$$
+```{r}
+AnB <- intersect(A,B)
+```
+$$B\cap C$$
+```{r}
+BnC <- intersect(B,C)
+```
+$$(A\cup B) \cap C$$
+```{r}
+intersect(AUB,C)
+```
+$$(A\cap B) \cup (B\cap C)$$
+```{r}
+union(AnB,BnC)
+```
+$$(A\cup B)'$$
+```{r}
+setdiff(U,AUB)
+```
+$$A' \cap B'$$
+```{r}
+Acomp <- setdiff(U,A)
+Acomp
+Bcomp <- setdiff(U,B)
+Bcomp
+```
+```{r}
+intersect(Acomp,Bcomp)
+```
+

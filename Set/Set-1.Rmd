@@ -1,0 +1,39 @@
+---
+title: "R Notebook"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+#Define Sets
+```{r}
+A <- c(1,3,5,7,9)
+B <- D <- c(1,5,7)
+```
+
+##Intersection
+```{r}
+intersect(A,B)
+```
+##Union
+```{r}
+union(A,B)
+```
+##Set Difference or Relative Complement
+```{r}
+setdiff(A,B)
+```
+##Set Equal
+```{r}
+setequal(A,B)
+setequal(B,D)
+```
+##Subset
+```{r}
+is.element(B,A)
+is.element(A,B)
+all(is.element(B,A))
+```
+##Checking wheter x is an element of the set y
+```{r}
+10 %in% A
+```
