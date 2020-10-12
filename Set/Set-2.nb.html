@@ -1751,102 +1751,237 @@ summary {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVSA8LSBjKDEsMiwzLDQsNSw2LDcsOCw5LDEwLDExLDEyKVxuQSA8LSBjKDIsMyw1LDcsMTEpXG5CIDwtIGMoMiw0LDYsOCwxMCwxMilcbkMgPC0gYygzLDYsOSwxMilcbmBgYCJ9 -->
-<pre class="r"><code>U &lt;- c(1,2,3,4,5,6,7,8,9,10,11,12)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuVSA8LSBjKDEsMiwzLDQsNSw2LDcsOCw5LDEwLDExLDEyKVxuQSA8LSBjKDIsMyw1LDcsMTEpXG5CIDwtIGMoMiw0LDYsOCwxMCwxMilcbkMgPC0gYygzLDYsOSwxMilcbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+U &lt;- c(1,2,3,4,5,6,7,8,9,10,11,12)
 A &lt;- c(2,3,5,7,11)
 B &lt;- c(2,4,6,8,10,12)
 C &lt;- c(3,6,9,12)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><span class="math display">\[A\cup B\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQVVCIDwtIHVuaW9uKEEsQilcbmBgYCJ9 -->
-<pre class="r"><code>AUB &lt;- union(A,B)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><span class="math display">\[A\cap B\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQW5CIDwtIGludGVyc2VjdChBLEIpXG5gYGAifQ== -->
-<pre class="r"><code>AnB &lt;- intersect(A,B)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><span class="math display">\[B\cap C\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQm5DIDwtIGludGVyc2VjdChCLEMpXG5gYGAifQ== -->
-<pre class="r"><code>BnC &lt;- intersect(B,C)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><span class="math display">\[(A\cup B) \cap C\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW50ZXJzZWN0KEFVQixDKVxuYGBgIn0= -->
-<pre class="r"><code>intersect(AUB,C)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAzICA2IDEyXG4ifQ== -->
-<pre><code>[1]  3  6 12</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><span class="math display">\[(A\cap B) \cup (B\cap C)\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudW5pb24oQW5CLEJuQylcbmBgYCJ9 -->
-<pre class="r"><code>union(AnB,BnC)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAyICA2IDEyXG4ifQ== -->
-<pre><code>[1]  2  6 12</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><span class="math display">\[(A\cup B)&#39;\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0ZGlmZihVLEFVQilcblxuYGBgIn0= -->
-<pre class="r"><code>setdiff(U,AUB)
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+$$A\cup B$$
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuQVVCIDwtIHVuaW9uKEEsQilcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+AUB &lt;- union(A,B)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+$$A\cap B$$
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuQW5CIDwtIGludGVyc2VjdChBLEIpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+AnB &lt;- intersect(A,B)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+$$B\cap C$$
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuQm5DIDwtIGludGVyc2VjdChCLEMpXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+BnC &lt;- intersect(B,C)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+$$(A\cup B) \cap C$$
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuaW50ZXJzZWN0KEFVQixDKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+intersect(AUB,C)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdICAzICA2IDEyXG4ifQ== --&gt;
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgOVxuIn0= -->
-<pre><code>[1] 1 9</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p><span class="math display">\[A&#39; \cap B&#39;\]</span></p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQWNvbXAgPC0gc2V0ZGlmZihVLEEpXG5BY29tcFxuYGBgIn0= -->
-<pre class="r"><code>Acomp &lt;- setdiff(U,A)
+<p>[1] 3 6 12</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+$$(A\cap B) \cup (B\cap C)$$
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxudW5pb24oQW5CLEJuQylcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+union(AnB,BnC)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdICAyICA2IDEyXG4ifQ== --&gt;
+</code></pre>
+<p>[1] 2 6 12</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+$$(A\cup B)&#39;$$
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2V0ZGlmZihVLEFVQilcblxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+setdiff(U,AUB)
+</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgOVxuIn0= --&gt;
+</code></pre>
+<p>[1] 1 9</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+$$A&#39; \cap B&#39;$$
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuQWNvbXAgPC0gc2V0ZGlmZihVLEEpXG5BY29tcFxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+Acomp &lt;- setdiff(U,A)
 Acomp</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAxICA0ICA2ICA4ICA5IDEwIDEyXG4ifQ== -->
-<pre><code>[1]  1  4  6  8  9 10 12</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQmNvbXAgPC0gc2V0ZGlmZihVLEIpXG5CY29tcFxuYGBgIn0= -->
-<pre class="r"><code>Bcomp &lt;- setdiff(U,B)
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdICAxICA0ICA2ICA4ICA5IDEwIDEyXG4ifQ== --&gt;
+</code></pre>
+<p>[1] 1 4 6 8 9 10 12</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuQmNvbXAgPC0gc2V0ZGlmZihVLEIpXG5CY29tcFxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+Bcomp &lt;- setdiff(U,B)
 Bcomp</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdICAxICAzICA1ICA3ICA5IDExXG4ifQ== -->
-<pre><code>[1]  1  3  5  7  9 11</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW50ZXJzZWN0KEFjb21wLEJjb21wKVxuYGBgIn0= -->
-<pre class="r"><code>intersect(Acomp,Bcomp)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgOVxuIn0= -->
-<pre><code>[1] 1 9</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdICAxICAzICA1ICA3ICA5IDExXG4ifQ== --&gt;
+</code></pre>
+<p>[1] 1 3 5 7 9 11</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuaW50ZXJzZWN0KEFjb21wLEJjb21wKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+intersect(Acomp,Bcomp)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgOVxuIn0= --&gt;
+</code></pre>
+<p>[1] 1 9 ```</p>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9ClUgPC0gYygxLDIsMyw0LDUsNiw3LDgsOSwxMCwxMSwxMikKQSA8LSBjKDIsMyw1LDcsMTEpCkIgPC0gYygyLDQsNiw4LDEwLDEyKQpDIDwtIGMoMyw2LDksMTIpCmBgYAoKJCRBXGN1cCBCJCQKYGBge3J9CkFVQiA8LSB1bmlvbihBLEIpCmBgYAokJEFcY2FwIEIkJApgYGB7cn0KQW5CIDwtIGludGVyc2VjdChBLEIpCmBgYAokJEJcY2FwIEMkJApgYGB7cn0KQm5DIDwtIGludGVyc2VjdChCLEMpCmBgYAokJChBXGN1cCBCKSBcY2FwIEMkJApgYGB7cn0KaW50ZXJzZWN0KEFVQixDKQpgYGAKJCQoQVxjYXAgQikgXGN1cCAoQlxjYXAgQykkJApgYGB7cn0KdW5pb24oQW5CLEJuQykKYGBgCiQkKEFcY3VwIEIpJyQkCmBgYHtyfQpzZXRkaWZmKFUsQVVCKQpgYGAKJCRBJyBcY2FwIEInJCQKYGBge3J9CkFjb21wIDwtIHNldGRpZmYoVSxBKQpBY29tcApCY29tcCA8LSBzZXRkaWZmKFUsQikKQmNvbXAKYGBgCmBgYHtyfQppbnRlcnNlY3QoQWNvbXAsQmNvbXApCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OgogIHBkZl9kb2N1bWVudDogZGVmYXVsdAogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKLS0tCgpgYGB7cn0KVSA8LSBjKDEsMiwzLDQsNSw2LDcsOCw5LDEwLDExLDEyKQpBIDwtIGMoMiwzLDUsNywxMSkKQiA8LSBjKDIsNCw2LDgsMTAsMTIpCkMgPC0gYygzLDYsOSwxMikKYGBgCgokJEFcY3VwIEIkJApgYGB7cn0KQVVCIDwtIHVuaW9uKEEsQikKYGBgCiQkQVxjYXAgQiQkCmBgYHtyfQpBbkIgPC0gaW50ZXJzZWN0KEEsQikKYGBgCiQkQlxjYXAgQyQkCmBgYHtyfQpCbkMgPC0gaW50ZXJzZWN0KEIsQykKYGBgCiQkKEFcY3VwIEIpIFxjYXAgQyQkCmBgYHtyfQppbnRlcnNlY3QoQVVCLEMpCmBgYAokJChBXGNhcCBCKSBcY3VwIChCXGNhcCBDKSQkCmBgYHtyfQp1bmlvbihBbkIsQm5DKQpgYGAKJCQoQVxjdXAgQiknJCQKYGBge3J9CnNldGRpZmYoVSxBVUIpCmBgYAokJEEnIFxjYXAgQickJApgYGB7cn0KQWNvbXAgPC0gc2V0ZGlmZihVLEEpCkFjb21wCkJjb21wIDwtIHNldGRpZmYoVSxCKQpCY29tcApgYGAKYGBge3J9CmludGVyc2VjdChBY29tcCxCY29tcCkKYGBgCgo=</div>
 
 
 
