@@ -15,14 +15,17 @@ C <- c(3,6,9,12)
 $$A\cup B$$
 ```{r}
 AUB <- union(A,B)
+AUB
 ```
 $$A\cap B$$
 ```{r}
 AnB <- intersect(A,B)
+AnB
 ```
 $$B\cap C$$
 ```{r}
 BnC <- intersect(B,C)
+BnC
 ```
 $$(A\cup B) \cap C$$
 ```{r}
