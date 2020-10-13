@@ -1,0 +1,154 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(ISLR)
+```
+
+```{r}
+dataCredit <- Credit
+head(dataCredit)
+```
+```{r}
+dim(dataCredit)
+```
+```{r}
+dataCredit$Age
+```
+```{r}
+hist(dataCredit$Age)
+```
+
+```{r}
+mean(dataCredit$Age)
+```
+```{r}
+median(dataCredit$Age)
+```
+```{r}
+table(dataCredit$Age)
+```
+
+```{r}
+library(lsr)
+```
+
+```{r}
+modeOf(dataCredit$Age)
+```
+```{r}
+maxFreq(dataCredit$Age)
+```
+
+```{r}
+var(dataCredit$Age)
+```
+```{r}
+sd(dataCredit$Age)
+```
+# Percentile 10
+```{r}
+quantile(x = dataCredit$Age, probs = 0.1)
+```
+# Percentile 80
+```{r}
+quantile(x = dataCredit$Age, probs = 0.8)
+```
+# Quartile 
+```{r}
+quantile(x = dataCredit$Age, probs = c(0.25, 0.50, 0.75))
+```
+# Range
+
+```{r}
+range(dataCredit$Age)
+```
+
+# IQR
+```{r}
+IQR(dataCredit$Age)
+```
+
+# Visualisasi dengan Boxplot
+
+```{r}
+boxplot(dataCredit$Age, horizontal = TRUE)
+```
+
+# Correlation
+```{r}
+newData <- data.frame(income = dataCredit$Income, limit = dataCredit$Limit)
+newData
+```
+```{r}
+plot(newData$income, newData$limit)
+```
+```{r}
+cor(newData)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
