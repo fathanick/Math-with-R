@@ -62,27 +62,27 @@ setdiff(U,AuB)
 
 $$A' \cap B'$$
 ```{r}
-Acomp <- setdiff(U,A)
+Acomp <- setdiff(U, A)
+Bcomp <- setdiff(U, B)
 Acomp
-Bcomp <- setdiff(U,B)
 Bcomp
 ```
 ```{r}
-intersect(Acomp,Bcomp)
+intersect(Acomp, Bcomp)
 ```
+
 
 #Set Equal
 ```{r}
+setequal(C,D)
 setequal(A,B)
-setequal(B,D)
 ```
 ##Subset
 ```{r}
-is.element(B,A)
-is.element(A,B)
-all(is.element(B,A))
+is.element(B,U)
+all(is.element(B,U))
 ```
 ##Checking wheter x is an element of the set y
 ```{r}
-10 %in% A
+2 %in% A
 ```

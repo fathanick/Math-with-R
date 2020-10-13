@@ -1,0 +1,145 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+### Descriptive Statistics
+
+Install package
+```{r}
+install.packages("ISLR")
+```
+Get the data
+```{r}
+library(ISLR)
+```
+
+Check the data
+```{r}
+dataCredit <- Credit
+head(dataCredit)
+```
+Check the dimension of the data
+```{r}
+dim(dataCredit)
+```
+
+See the  values  of one  variable
+```{r}
+dataCredit$Income
+```
+Create histogram
+```{r}
+hist(dataCredit$Income)
+```
+Sample Mean
+```{r}
+mean(dataCredit$Income)
+```
+
+Sample Median
+```{r}
+median(dataCredit$Income)
+```
+
+Frequency Table
+```{r}
+table(dataCredit$Ethnicity)
+```
+```{r}
+install.packages("lsr")
+```
+
+
+```{r}
+library(lsr)
+```
+
+
+```{r}
+modeOf(dataCredit$Education)
+```
+```{r}
+maxFreq(dataCredit$Education)
+```
+Compute  the  variance  and sd of a variable
+```{r}
+var(dataCredit$Income)
+```
+```{r}
+sd(dataCredit$Income)
+```
+Percentile
+```{r}
+quantile(x = dataCredit$Income , probs = 0.1)
+```
+```{r}
+quantile(x=dataCredit$Income , probs=c(0.25 ,0.50,  0.75))
+```
+Range
+```{r}
+range(dataCredit$Income)
+```
+Interquartile Range
+```{r}
+IQR(dataCredit$Income)
+```
+Boxplot
+```{r}
+boxplot(dataCredit$Income)
+```
+Correlation
+
+Create a new  data of  income  and  limit
+```{r}
+newData  <- data.frame(income = dataCredit$Income , limit = dataCredit$Limit)
+```
+
+Plotting the data
+```{r}
+plot(newData$income , newData$limit)
+```
+
+Compute the correlation
+```{r}
+cor(newData)
+```
+
+Binomial
+```{r}
+dbinom(x = 4, size = 10, prob = 1/3)
+```
+```{r}
+pbinom(q = 4, size = 10, prob = 1/3)
+```
+```{r}
+qbinom(p = 0.75,  size = 10, prob = 1/3)
+```
+
+```{r}
+rbinom(n = 50, size = 10, prob = 1/3)
+```
+
+Normal
+```{r}
+dnorm(x = 1, mean = 1, sd = 0.1)
+```
+
+Cumulative  probability P(< 0.7), given a standard  normal
+```{r}
+pnorm(q = 0.7, mean = 0, sd = 1)
+```
+Percentile  25 of a standard  normal
+```{r}
+qnorm(p = 0.25,  mean = 0, sd = 1)
+```
+Sampling  from a normal  distribution  with  mean
+```{r}
+dataNorm  <- rnorm(n = 100, mean = 160, sd = 2)
+```
+Plot  the  corresponding  histogram
+```{r}
+hist(dataNorm)
+```
