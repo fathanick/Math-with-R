@@ -1,0 +1,71 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+### Discrete Random Variable
+
+For example, we are tossing a 1000 IDR coin n = 10 times and let X be the number of angklungs after all tosses. Knowing that the probability of angklung appears in one toss is p=1/3,
+what is the probability that we get X = 4 angklungs out of n = 10 tosses?
+
+```{r}
+dbinom(x = 4, size = 10, prob = 1/3)
+```
+
+X<=4
+```{r}
+pbinom(q=4, size = 10, prob = 1/3)
+```
+
+Percentile ke-75
+```{r}
+qbinom(p = 0.75, size = 10, prob = 1/3)
+```
+
+Simulasi 50 binomial random variabel
+```{r}
+rbinom(n = 50, size = 10, prob = 1/3)
+```
+
+## Continuous Random Variable
+Mencari nilai density = 1 pada distribusi normal dengan rata2 = 1 dan standard deviasi = 0.1
+```{r}
+dnorm(x = 1, mean = 1, sd = 0.1)
+```
+
+Mencari CMF dengan X < 0.7 pada standard normal
+```{r}
+pnorm(q = 0.7, mean = 0, sd = 1)
+```
+
+Persentil ke-25 pada standard normal
+```{r}
+qnorm(p = 0.25, mean = 0, sd = 1)
+```
+
+Sampling 100 data, dengan rata2 = 160 dan SD = 2
+```{r}
+dataNorm <- rnorm(n = 100, mean = 160, sd = 2)
+dataNorm
+```
+
+Plot histogram
+```{r}
+hist(dataNorm)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
