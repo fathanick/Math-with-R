@@ -1,0 +1,28 @@
+---
+title: "Differential"
+output: html_notebook
+---
+
+Excercise
+```{r}
+f1=expression(2*x^5)
+f2=expression(x^2+4)
+f3=expression(x^5-6*x^7)
+
+f1
+f2
+f3
+```
+
+```{r}
+D(f1,'x')
+D(f2,'x')
+D(f3,'x')
+```
+```{r}
+library(Ryacas)
+yac_str("D(x) 2*x^5")
+yac_str("D(x) x^2+4")
+yac_str("D(x) sin(x)")
+```
+

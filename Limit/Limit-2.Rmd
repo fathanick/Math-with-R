@@ -1,0 +1,19 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(Ryacas0)
+```
+
+```{r}
+x <- Sym("x")
+Limit(1/x, x, Infinity)
+Limit((1-cos(x))/x, x, 0)
+Limit(((2*((-3+x)^2))-18)/x, x, 0)
+Limit(((x) - sqrt((3*x)+4))/(4-x), x, 4)
+```
+
+
