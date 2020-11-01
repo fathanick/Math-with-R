@@ -1,0 +1,29 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(mosaicCalc)
+```
+
+```{r}
+fun <- antiD(x^2~x)
+fun
+```
+
+```{r}
+f1 <- antiD(2*x^4~x)
+f1
+```
+
+```{r}
+f2 <- antiD(x^2~x)
+f2(x=3)-f2(x=0)
+```
+
+```{r}
+f3 <- antiD(sin(x^2)~x)
+f3(x=10)-f3(x=0)
+```
+

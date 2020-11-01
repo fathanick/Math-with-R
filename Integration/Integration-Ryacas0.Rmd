@@ -1,0 +1,27 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+```{r}
+integrand <- function(x){
+  return(x^2)
+}
+```
+
+```{r}
+integrate(f = integrand, lower = 0, upper = 1)
+```
+
+```{r}
+library(Ryacas0)
+```
+
+```{r}
+x <- Sym('x')
+Integrate(x^2, x)
+```
+
