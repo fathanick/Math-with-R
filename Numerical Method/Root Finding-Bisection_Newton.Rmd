@@ -1,0 +1,41 @@
+---
+title: "Metode Pencarian Akar dengan R"
+author: "Tim Dosen Matematika Lanjut"
+date: "12/3/2020"
+output: html_document
+---
+
+
+```{r}
+library(cmna)
+```
+
+```{r}
+func <- function(x) {
+  x^3 + 4 * x^2 - 10
+}
+
+curve(func, xlim=c(0,3), col='blue', lwd=1, lty=2)
+abline(h=0)
+abline(v=0)
+```
+#### Metode Bisection
+
+```{r}
+bisection(func, 1, 2)
+```
+
+#### Metode Newton
+
+```{r}
+library(Deriv)
+```
+
+```{r}
+fp <- Deriv(func)
+fp
+```
+```{r}
+newton(func, fp, 1.5)
+```
+
