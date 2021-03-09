@@ -135,14 +135,14 @@ Suppose we have a linear system,
 \[
 \begin{alignat*}{7}
 5x &&\; - \;&& 4y             &&\; = \;&& -10  \\
--x &&\; - \;&& y             &&\; = \;&& 2 \\
+-x &&\; + \;&& y             &&\; = \;&& 2 
 \end{alignat*}
 \] that can be represented in a matrix form
 
 \[
 \begin{bmatrix}
     5 & -4 \\
-  -1 & -1
+  -1 & 1
   \end{bmatrix}
     \begin{bmatrix}
       x_{1} \\
@@ -215,6 +215,82 @@ plotEqn3d for three-variable equations.
 \end{Shaded}
 
 \begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    0   -2
+## [2,]    0    1    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{echelon}\NormalTok{(A, b, }\DataTypeTok{verbose=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{fractions=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Initial matrix:
+##      [,1] [,2] [,3]
+## [1,]   5   -4  -10 
+## [2,]  -1    1    2 
+## 
+## row: 1 
+## 
+##  multiply row 1 by 1/5 
+##      [,1] [,2] [,3]
+## [1,]    1 -4/5   -2
+## [2,]   -1    1    2
+## 
+##  multiply row 1 by 1 and add to row 2 
+##      [,1] [,2] [,3]
+## [1,]    1 -4/5   -2
+## [2,]    0  1/5    0
+## 
+## row: 2 
+## 
+##  multiply row 2 by 5 
+##      [,1] [,2] [,3]
+## [1,]    1 -4/5   -2
+## [2,]    0    1    0
+## 
+##  multiply row 2 by 4/5 and add to row 1 
+##      [,1] [,2] [,3]
+## [1,]  1    0   -2  
+## [2,]  0    1    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{echelon}\NormalTok{(A,b, }\DataTypeTok{verbose=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Initial matrix:
+##      [,1] [,2] [,3]
+## [1,]    5   -4  -10
+## [2,]   -1    1    2
+## 
+## row: 1 
+## 
+##  multiply row 1 by 0.2 
+##      [,1] [,2] [,3]
+## [1,]    1 -0.8   -2
+## [2,]   -1  1.0    2
+## 
+##  multiply row 1 by 1 and add to row 2 
+##      [,1] [,2] [,3]
+## [1,]    1 -0.8   -2
+## [2,]    0  0.2    0
+## 
+## row: 2 
+## 
+##  multiply row 2 by 5 
+##      [,1] [,2] [,3]
+## [1,]    1 -0.8   -2
+## [2,]    0  1.0    0
+## 
+##  multiply row 2 by 0.8 and add to row 1 
 ##      [,1] [,2] [,3]
 ## [1,]    1    0   -2
 ## [2,]    0    1    0

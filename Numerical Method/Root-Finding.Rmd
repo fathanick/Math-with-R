@@ -1,0 +1,58 @@
+---
+title: "Root Finding"
+author: "Tim Dosen Matematika Lanjut"
+date: "12/3/2020"
+output: html_document
+---
+
+
+## R Markdown
+
+```{r}
+library(cmna)
+
+f <- function(x) {
+  x^3 - 3
+}
+
+curve(f, xlim=c(0,3), col='blue', lwd=1, lty=3)
+abline(h=0)
+abline(v=0)
+```
+```{r}
+bisection(f, 1,2)
+```
+
+```{r}
+f1 <- function(x) {
+  x^3 - 20
+}
+
+curve(f1, xlim=c(0,3), col='blue', lwd=1, lty=3)
+abline(h=0)
+abline(v=0)
+```
+
+```{r}
+library(Deriv)
+
+fp <- Deriv(f1)
+fp
+```
+```{r}
+newton(f1, fp, x=3.0)
+```
+
+```{r}
+f2 <- function(x){
+  x^2-6
+}
+
+fp2 <- Deriv(f2)
+fp2
+```
+
+```{r}
+newton(f2, fp2, x=1)
+```
+

@@ -1,17 +1,12 @@
 ---
-title: "R Notebook"
-output:
-  html_document:
-    df_print: paged
----
-
----
-title: "R Notebook"
+title: "Solving Systems of Linear Equations with Two Unknowns using R"
 output:
   html_document:
     df_print: paged
   pdf_document: default
+authors: Ahmad Fathan Hidayatullah
 ---
+
 ### The required package
 To perform linear equations in R, we need to install a package called **matlib**.
 To install the package, write the command below:

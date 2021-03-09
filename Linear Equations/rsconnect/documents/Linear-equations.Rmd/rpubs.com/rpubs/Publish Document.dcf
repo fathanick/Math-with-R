@@ -1,0 +1,10 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/735956/c53682bd92de497ea991e5a7b556e6b6
+bundleId: https://api.rpubs.com/api/v1/document/735956/c53682bd92de497ea991e5a7b556e6b6
+url: http://rpubs.com/ahmadfathan/735956
+when: 1615254312.0299

@@ -1,41 +1,109 @@
 ---
 title: "Metode Pencarian Akar dengan R"
-author: "Tim Dosen Matematika Lanjut"
+author: "Tim Dosen Matematika Lanjut, Prodi Sarjana Informatika, Universitas Islam Indonesia"
 date: "12/3/2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
+Pada tutorial menggunakan `R` kali ini, kita akan mempraktikkan metode pencarian akar dengan metode *Bisection* (Metode Bagi Dua) dan Metode Newton.
+
+*Library* yang akan kita gunakan adalah `cmna` yang dapat anda akses melalui alamat  https://rdrr.io/cran/cmna/.
+
+#### 1. Mempersiapkan `library cmna`
 
 ```{r}
 library(cmna)
 ```
 
+#### 2. Mendefinisikan fungsi dan membuat visualisasi kurva fungsi
+
 ```{r}
-func <- function(x) {
+f <- function(x) {
   x^3 + 4 * x^2 - 10
 }
+```
 
-curve(func, xlim=c(0,3), col='blue', lwd=1, lty=2)
+```{r}
+curve(f, xlim=c(0,3), col='blue', lwd=1, lty=2)
 abline(h=0)
 abline(v=0)
 ```
-#### Metode Bisection
+
+
+#### 3. Metode Bisection
+
+Untuk mencari perkiraan akar dari fungsi $f(x)$ dengan Metode Bagi Dua, gunakan fungsi `bisection` seperti ini,
+
+`bisection(f, a, b, tol = 0.001, m = 100)`.
+
+**Keterangan Argumen**
+
+* f = fungsi
+
+* a = nilai interval pertama
+
+* b = nilai interval kedua
+
+* tol = nilai toleransi error
+
+* m = cacah iterasi maksimal
+
 
 ```{r}
-bisection(func, 1, 2)
+bisection(f, 1, 2)
 ```
 
-#### Metode Newton
+#### 4. Metode Newton
+
+Untuk penyelesaian dengan Metode Newton, terlebih dahulu kita mendefinisikan turunan dari fungsi $f$ menggunakan `library Deriv`.
 
 ```{r}
 library(Deriv)
 ```
 
+Berikut ini adalah proses mendapatkan turunan fungsi $f$.
+
 ```{r}
-fp <- Deriv(func)
+fp <- Deriv(f)
 fp
 ```
+
+Untuk mencari solusi akar dari sebuah fungsi dengan Metode Newton, gunakan fungsi `newton` dengan cara:
+
+`newton(f, fp, x, tol = 0.001, m = 100)`
+
+**Keterangan Argumen**
+
+* f = fungsi
+
+* fp = fungsi derivasi dari $f$
+
+* x = nilai perkiraan awal
+
+* tol = nilai toleransi error
+
+* m = cacah iterasi maksimal
+
 ```{r}
-newton(func, fp, 1.5)
+newton(f, fp, 1.5)
 ```
 
+#### Latihan
+
+1. Gunakan Metode Bisection untuk mencari perkiraan akar dari fungsi-fungsi berikut!
+
+    a. $f(x)= \sqrt{x}-cos x$ pada selang $[0,1]$ 
+  
+    b. $f(x)=3(x+1)(x-\frac{1}{2})(x-1)$ pada selang $[-2,1.5]$ dan [-1.25,2.5]
+  
+    c. $f(x)=x^3-2*x^2+14x-6$ pada selang $[0.1];[1,3.2];[3.2,4]$ dengan toleransi error $10^{-2}$
+
+2. Gunakan Metode Newton untuk mencari perkiraan akar fungsi-fungsi berikut!
+
+    a. $f(x)=x^2-6$ dengan inisialisasi awal $p_0=1$
+  
+    b. $f(x)=x^3-2*x^2+14x-6$ dengan inisialisasi awal $p_0=1.5$
+  
+3. Untuk mengerjakan soal 1 dan 2, silakan anda melakukan *adjustment* terhadap parameter cacah iterasi dan atau toleransi error untuk mendapatkan hasil terbaik!
