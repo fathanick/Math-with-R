@@ -1,0 +1,202 @@
+---
+title: "R Notebook: Function"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+f1 <- function(x){
+  result <- x^2-5
+  return (result)
+}
+
+f2 <- function(x){
+  result <- sqrt(x)
+  return (result)
+}
+```
+
+
+```{r}
+print(f1(2))
+print(f2(3))
+```
+
+## Exercise 3
+
+### 1.1
+```{r}
+#1.1
+f <- function(x) {
+  result <- x^3 + x^2 -6
+  return(result)
+}
+f
+f(2)
+```
+### 1.2
+```{r}
+#1.2
+g <- function(a,b) {
+  gx <- a*b*(b-a)
+  return(gx)
+}
+g
+g(1,2)
+```
+### 1.3
+```{r}
+#1.3
+#h(m, n) = (√m/n) + m − 2n
+h <- function(m, n) {
+  hx <- (sqrt(m)/n) + m - 2*n
+  return(hx)
+}
+h
+h(0,1)
+```
+### 2.1
+```{r}
+#2.1
+a <- matrix(c(1:4),2,2,TRUE)
+b <- matrix(c(5:8),2,2,TRUE)
+a
+b
+```
+```{r}
+#f(a, b) = (a + b)ab
+f <- function(a, b) {
+  fab <- (a+b)%*%a%*%b
+  return(fab)
+}
+f(a,b)
+```
+### 2.2
+```{r}
+#2.2
+#MATRIX
+m <- matrix(c(3:6),2,2,TRUE)
+n <- matrix(c(2:5),2,2,TRUE)
+m
+n
+```
+
+```{r}
+#h(m, n) = |m|n − mn
+h <- function(m,n){
+  mn <- det(m)*n - m%*%n
+  return(mn)
+}
+h(m,n)
+```
+### 3.3
+```{r}
+#2.3
+#g(x) = x'x − 2x 
+# x' adalah x transpose
+
+x <- matrix(c(4:7),2,2,TRUE)
+y <- t(x) #transpos dari x
+x
+y
+```
+```{r}
+g <- function(x) {
+  gx <- t(x)-2*x
+  return(gx)
+}
+g(x)
+```
+
+## Constant function
+
+Reference for plot types can be accessed here http://www.sthda.com/english/wiki/generic-plot-types-in-r-software
+```{r}
+f <- function(x){
+  #suppose c = 2
+  fx <- 2
+  return (fx)
+}
+
+input <- 1:10
+plot(input, sapply(input, f), type = "l", xlab = "x", ylab = "y")
+```
+
+## Linear Function
+
+```{r}
+f <- function(x){
+  #a=1 and b=2
+  fx <- 1*x+2
+  return(fx)
+}
+
+input <- -1:10
+plot(input, sapply(input, f), type = "l", xlab = "x", ylab = "f(x)")
+```
+## Quadratic Function
+```{r}
+f <- function(x){
+  #a<0
+  fx <- -1*x^2+2*x+1
+  return(fx)
+}
+
+input <- -20:22
+plot(input, sapply(input, f), type = "l", xlab = "x", ylab = "f(x)")
+```
+## Polynomial Function
+```{r}
+f <- function(x){
+  fx <- x^3-3*x^2+x-1
+  return(fx)
+}
+
+input <- seq(-10, 11, 0.1)
+plot(input, sapply(input, f), type = "l", xlab = "x", ylab = "f(x)")
+```
+## Rational Function
+```{r}
+f <- function(x){
+  fx <- 1/x
+  return(fx)
+}
+
+input <- seq(-10, 10, 0.1)
+#to remove 0 from the domain of f
+input <- input[-which(input==0)]
+plot(input, sapply(input, f), type = "p", xlab = "x", ylab = "y")
+```
+
+
+## Exercise 4
+```{r}
+#f(x) = sin(x)
+f <- function(x) {
+  fx <- sin(x*pi/180)
+  return(fx)
+}
+
+input <- seq(-180,180,0.1)
+plot(input, sapply(input, f), type = "l" , xlab = "x" , ylab = " plot f(x)" )
+```
+```{r}
+f <- function(x){
+  fx <- log10(x)
+  return (fx)
+}
+
+input <- 0:100
+plot(input, sapply(input, f), type = "p", xlab = "x", ylab = "f(x)")
+```
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
