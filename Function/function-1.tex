@@ -1,0 +1,503 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={R Notebook: Function},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{R Notebook: Function}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  result <-}\StringTok{ }\NormalTok{x}\OperatorTok{^}\DecValTok{2-5}
+  \KeywordTok{return}\NormalTok{ (result)}
+\NormalTok{\}}
+
+\NormalTok{f2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  result <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(x)}
+  \KeywordTok{return}\NormalTok{ (result)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(}\KeywordTok{f1}\NormalTok{(}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(}\KeywordTok{f2}\NormalTok{(}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.732051
+\end{verbatim}
+
+\hypertarget{exercise-3}{%
+\subsection{Exercise 3}\label{exercise-3}}
+
+\hypertarget{section}{%
+\subsubsection{1.1}\label{section}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#1.1}
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  result <-}\StringTok{ }\NormalTok{x}\OperatorTok{^}\DecValTok{3} \OperatorTok{+}\StringTok{ }\NormalTok{x}\OperatorTok{^}\DecValTok{2} \DecValTok{-6}
+  \KeywordTok{return}\NormalTok{(result)}
+\NormalTok{\}}
+\NormalTok{f}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function(x) {
+##   result <- x^3 + x^2 -6
+##   return(result)
+## }
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{f}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6
+\end{verbatim}
+
+\hypertarget{section-1}{%
+\subsubsection{1.2}\label{section-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#1.2}
+\NormalTok{g <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a,b) \{}
+\NormalTok{  gx <-}\StringTok{ }\NormalTok{a}\OperatorTok{*}\NormalTok{b}\OperatorTok{*}\NormalTok{(b}\OperatorTok{-}\NormalTok{a)}
+  \KeywordTok{return}\NormalTok{(gx)}
+\NormalTok{\}}
+\NormalTok{g}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function(a,b) {
+##   gx <- a*b*(b-a)
+##   return(gx)
+## }
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{g}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\hypertarget{section-2}{%
+\subsubsection{1.3}\label{section-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#1.3}
+\CommentTok{#h(m, n) = (√m/n) + m − 2n}
+\NormalTok{h <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(m, n) \{}
+\NormalTok{  hx <-}\StringTok{ }\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(m)}\OperatorTok{/}\NormalTok{n) }\OperatorTok{+}\StringTok{ }\NormalTok{m }\OperatorTok{-}\StringTok{ }\DecValTok{2}\OperatorTok{*}\NormalTok{n}
+  \KeywordTok{return}\NormalTok{(hx)}
+\NormalTok{\}}
+\NormalTok{h}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function(m, n) {
+##   hx <- (sqrt(m)/n) + m - 2*n
+##   return(hx)
+## }
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{h}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -2
+\end{verbatim}
+
+\hypertarget{section-3}{%
+\subsubsection{2.1}\label{section-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#2.1}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{5}\OperatorTok{:}\DecValTok{8}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    5    6
+## [2,]    7    8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#f(a, b) = (a + b)ab}
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, b) \{}
+\NormalTok{  fab <-}\StringTok{ }\NormalTok{(a}\OperatorTok{+}\NormalTok{b)}\OperatorTok{%*%}\NormalTok{a}\OperatorTok{%*%}\NormalTok{b}
+  \KeywordTok{return}\NormalTok{(fab)}
+\NormalTok{\}}
+\KeywordTok{f}\NormalTok{(a,b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]  458  532
+## [2,]  706  820
+\end{verbatim}
+
+\hypertarget{section-4}{%
+\subsubsection{2.2}\label{section-4}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#2.2}
+\CommentTok{#MATRIX}
+\NormalTok{m <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\OperatorTok{:}\DecValTok{6}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{n <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\OperatorTok{:}\DecValTok{5}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{m}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    3    4
+## [2,]    5    6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    2    3
+## [2,]    4    5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#h(m, n) = |m|n − mn}
+\NormalTok{h <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(m,n)\{}
+\NormalTok{  mn <-}\StringTok{ }\KeywordTok{det}\NormalTok{(m)}\OperatorTok{*}\NormalTok{n }\OperatorTok{-}\StringTok{ }\NormalTok{m}\OperatorTok{%*%}\NormalTok{n}
+  \KeywordTok{return}\NormalTok{(mn)}
+\NormalTok{\}}
+\KeywordTok{h}\NormalTok{(m,n)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]  -26  -35
+## [2,]  -42  -55
+\end{verbatim}
+
+\hypertarget{section-5}{%
+\subsubsection{3.3}\label{section-5}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#2.3}
+\CommentTok{#g(x) = x'x − 2x }
+\CommentTok{# x' adalah x transpose}
+
+\NormalTok{x <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\OperatorTok{:}\DecValTok{7}\NormalTok{),}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{t}\NormalTok{(x) }\CommentTok{#transpos dari x}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    4    5
+## [2,]    6    7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    4    6
+## [2,]    5    7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  gx <-}\StringTok{ }\KeywordTok{t}\NormalTok{(x)}\OperatorTok{-}\DecValTok{2}\OperatorTok{*}\NormalTok{x}
+  \KeywordTok{return}\NormalTok{(gx)}
+\NormalTok{\}}
+\KeywordTok{g}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]   -4   -4
+## [2,]   -7   -7
+\end{verbatim}
+
+\hypertarget{constant-function}{%
+\subsection{Constant function}\label{constant-function}}
+
+Reference for plot types can be accessed here
+\url{http://www.sthda.com/english/wiki/generic-plot-types-in-r-software}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \CommentTok{#suppose c = 2}
+\NormalTok{  fx <-}\StringTok{ }\DecValTok{2}
+  \KeywordTok{return}\NormalTok{ (fx)}
+\NormalTok{\}}
+
+\NormalTok{input <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{10}
+\KeywordTok{plot}\NormalTok{(input, }\KeywordTok{sapply}\NormalTok{(input, f), }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"x"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"y"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{function-1_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\hypertarget{linear-function}{%
+\subsection{Linear Function}\label{linear-function}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \CommentTok{#a=1 and b=2}
+\NormalTok{  fx <-}\StringTok{ }\DecValTok{1}\OperatorTok{*}\NormalTok{x}\OperatorTok{+}\DecValTok{2}
+  \KeywordTok{return}\NormalTok{(fx)}
+\NormalTok{\}}
+
+\NormalTok{input <-}\StringTok{ }\DecValTok{-1}\OperatorTok{:}\DecValTok{10}
+\KeywordTok{plot}\NormalTok{(input, }\KeywordTok{sapply}\NormalTok{(input, f), }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"x"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"f(x)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{function-1_files/figure-latex/unnamed-chunk-13-1.pdf}
+\#\# Quadratic Function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+  \CommentTok{#a<0}
+\NormalTok{  fx <-}\StringTok{ }\DecValTok{-1}\OperatorTok{*}\NormalTok{x}\OperatorTok{^}\DecValTok{2}\OperatorTok{+}\DecValTok{2}\OperatorTok{*}\NormalTok{x}\OperatorTok{+}\DecValTok{1}
+  \KeywordTok{return}\NormalTok{(fx)}
+\NormalTok{\}}
+
+\NormalTok{input <-}\StringTok{ }\DecValTok{-20}\OperatorTok{:}\DecValTok{22}
+\KeywordTok{plot}\NormalTok{(input, }\KeywordTok{sapply}\NormalTok{(input, f), }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"x"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"f(x)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{function-1_files/figure-latex/unnamed-chunk-14-1.pdf}
+\#\# Polynomial Function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  fx <-}\StringTok{ }\NormalTok{x}\OperatorTok{^}\DecValTok{3-3}\OperatorTok{*}\NormalTok{x}\OperatorTok{^}\DecValTok{2}\OperatorTok{+}\NormalTok{x}\DecValTok{-1}
+  \KeywordTok{return}\NormalTok{(fx)}
+\NormalTok{\}}
+
+\NormalTok{input <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{, }\FloatTok{0.1}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(input, }\KeywordTok{sapply}\NormalTok{(input, f), }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"x"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"f(x)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{function-1_files/figure-latex/unnamed-chunk-15-1.pdf}
+\#\# Rational Function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  fx <-}\StringTok{ }\DecValTok{1}\OperatorTok{/}\NormalTok{x}
+  \KeywordTok{return}\NormalTok{(fx)}
+\NormalTok{\}}
+
+\NormalTok{input <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\FloatTok{0.1}\NormalTok{)}
+\CommentTok{#to remove 0 from the domain of f}
+\NormalTok{input <-}\StringTok{ }\NormalTok{input[}\OperatorTok{-}\KeywordTok{which}\NormalTok{(input}\OperatorTok{==}\DecValTok{0}\NormalTok{)]}
+\KeywordTok{plot}\NormalTok{(input, }\KeywordTok{sapply}\NormalTok{(input, f), }\DataTypeTok{type =} \StringTok{"p"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"x"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"y"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{function-1_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\hypertarget{exercise-4}{%
+\subsection{Exercise 4}\label{exercise-4}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#f(x) = sin(x)}
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  fx <-}\StringTok{ }\KeywordTok{sin}\NormalTok{(x}\OperatorTok{*}\NormalTok{pi}\OperatorTok{/}\DecValTok{180}\NormalTok{)}
+  \KeywordTok{return}\NormalTok{(fx)}
+\NormalTok{\}}
+
+\NormalTok{input <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{180}\NormalTok{,}\DecValTok{180}\NormalTok{,}\FloatTok{0.1}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(input, }\KeywordTok{sapply}\NormalTok{(input, f), }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{ , }\DataTypeTok{xlab =} \StringTok{"x"}\NormalTok{ , }\DataTypeTok{ylab =} \StringTok{" plot f(x)"}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{function-1_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  fx <-}\StringTok{ }\KeywordTok{log10}\NormalTok{(x)}
+  \KeywordTok{return}\NormalTok{ (fx)}
+\NormalTok{\}}
+
+\NormalTok{input <-}\StringTok{ }\DecValTok{0}\OperatorTok{:}\DecValTok{100}
+\KeywordTok{plot}\NormalTok{(input, }\KeywordTok{sapply}\NormalTok{(input, f), }\DataTypeTok{type =} \StringTok{"p"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"x"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"f(x)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{function-1_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\end{document}
